@@ -18,7 +18,7 @@ class Api::V1::SkateSpotsController < ApplicationController
   private
 
   def post_params
-    params.permit(:country, :city, :state, :name, :description, :photo, :latitude, :longitude, :bust_factor, :user_id)   #These must be included in the body of the POST or PATCH requests we will be making with JS fetch.
+    params.permit(:country, :city, :state, :name, :description, :skatephoto, :latitude, :longitude, :bust_factor, :user_id)   #These must be included in the body of the POST or PATCH requests we will be making with JS fetch.
   end
 
 end
