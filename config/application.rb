@@ -26,7 +26,7 @@ module SkateSenseBE
 
     config.middleware.insert_before 0, Rack::Cors do
       allow do
-        origins 'localhost:3000', 'http://seanconrad.me:3000'
+        origins 'localhost:3000', 'http://seanconrad.me'
         resource '/api', :headers => :any, :methods => :any
       end
     end
