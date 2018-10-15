@@ -3,7 +3,6 @@ class Api::V1::SkateSpotsController < ApplicationController
   def index
     @skate_spots = SkateSpot.all
     render json: @skate_spots
-    byebug
   end
 
   def show
