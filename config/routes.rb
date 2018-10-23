@@ -6,6 +6,7 @@ Rails.application.routes.draw do
       resources :likes, only: [:index, :create, :show, :destroy]
       resources :bookmarks, only: [:index, :create, :show, :destroy]
       post '/login', to: 'auth#create'
+      get '/profile', to: 'users#profile'
       # get '/events/:id', to: 'events#show'
     end
   end
