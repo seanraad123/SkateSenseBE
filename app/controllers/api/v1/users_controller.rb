@@ -11,14 +11,18 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def create
-    @user = User.create(post_params)
-    render json: @user, status: 201
+    @user = User.create(user_params)
+    if @user.valid?
+      render json: { user: UserSerializer.new(@user) }, status: :created
+    else
+      render json: { error: 'failed to create user' }, status: :not_acceptable
+    end
   end
 
   private
 
-  def post_params
-    params.permit(:username, :first_name, :last_name, :email, :photo)   #These must be included in the body of the POST or PATCH requests we will be making with JS fetch.
+  def user_params
+    params.require(:user).permit(:username, :first_name, :last_name, :password, :email, :photo)   #These must be included in the body of the POST or PATCH requests we will be making with JS fetch.
   end
 
 end

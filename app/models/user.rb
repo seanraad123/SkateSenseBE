@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  has_secure_password
+  validates :username, uniqueness: { case_sensitive: false }
   has_many :events, through: :skate_spots, dependent: :destroy
   has_many :skate_spots, dependent: :destroy
   has_many :likes, dependent: :destroy

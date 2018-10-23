@@ -5,6 +5,7 @@ Rails.application.routes.draw do
       resources :users, only: [:index, :show, :create, :destroy]
       resources :likes, only: [:index, :create, :show, :destroy]
       resources :bookmarks, only: [:index, :create, :show, :destroy]
+      post '/login', to: 'auth#create'
       # get '/events/:id', to: 'events#show'
     end
   end
