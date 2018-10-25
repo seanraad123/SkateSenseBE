@@ -5,3 +5,5 @@ App for skateboarders to be able to find, post, and bookmark skate spots/skate p
 This is the Ruby on Rails backend API for SkateSense
 
 - Incorporates JWT authentication and Serialization
+
+[Link to frontend](https://github.com/seanraad123/SkateSenseFE)
