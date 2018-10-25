@@ -1,24 +1,7 @@
-# README
+# SkateSense Back End
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+App for skateboarders to be able to find, post, and bookmark skate spots/skate parks in their area
 
-Things you may want to cover:
+This is the Ruby on Rails backend API for SkateSense
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- Incorporates JWT authentication and Serialization
