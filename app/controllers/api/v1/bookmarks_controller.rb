@@ -11,8 +11,8 @@ class Api::V1::BookmarksController < ApplicationController
   end
 
   def create
-    @bookmark = Bookmark.create(post_params)
-    render json: @bookmark, status: 201
+    @bookmark = Bookmark.create(bookmark_params)
+    render json: @bookmark
   end
 
   def destroy
@@ -24,8 +24,8 @@ class Api::V1::BookmarksController < ApplicationController
 
   private
 
-  def post_params
-    params.permit(:skate_spot_id, :user_id)   #These must be included in the body of the POST or PATCH requests we will be making with JS fetch.
+  def bookmark_params
+    params.permit(:user_id, :skate_spot_id)   #These must be included in the body of the POST or PATCH requests we will be making with JS fetch.
   end
 
 end
