@@ -11,8 +11,13 @@ class Api::V1::BookmarksController < ApplicationController
   end
 
   def create
-    @bookmark = Bookmark.create(bookmark_params)
-    render json: @bookmark
+    @bookmark =  Bookmark.new(post_params)
+    if @bookmark.save
+      render json: @bookmark, status: 201
+    else
+      render json: @bookmark.errors.messages, status: 400
+    end
+
   end
 
   def destroy

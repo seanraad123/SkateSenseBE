@@ -11,8 +11,13 @@ class Api::V1::SkateSpotsController < ApplicationController
   end
 
   def create
-    @skate_spot = SkateSpot.create(post_params)
-    render json: @skate_spot, status: 201
+    @skate_spot =  SkateSpot.new(post_params)
+    if @skate_spot.save
+      render json: @skate_spot, status: 201
+    else
+      render json: @skate_spot.errors.messages, status: 400
+    end
+
   end
 
   private
