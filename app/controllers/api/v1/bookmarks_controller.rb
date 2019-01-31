@@ -11,7 +11,7 @@ class Api::V1::BookmarksController < ApplicationController
   end
 
   def create
-    @bookmark =  Bookmark.new(post_params)
+    @bookmark =  Bookmark.new(bookmark_params)
     if @bookmark.save
       render json: @bookmark, status: 201
     else
