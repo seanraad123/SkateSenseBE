@@ -12,6 +12,7 @@ class Api::V1::SkateSpotsController < ApplicationController
 
   def create
     byebug
+    
     @skate_spot =  SkateSpot.new(post_params)
     if @skate_spot.save
       render json: @skate_spot, status: 201
@@ -34,7 +35,7 @@ class Api::V1::SkateSpotsController < ApplicationController
   private
 
   def post_params
-    params.permit(:country, :city, :state, :name, :description, {skatephotos:[]}, :latitude, :longitude, :bust_factor, :user_id)   #These must be included in the body of the POST or PATCH requests we will be making with JS fetch.
+    params.permit(:country, :city, :state, :name, :description, {avatars: []}, :latitude, :longitude, :bust_factor, :user_id)   #These must be included in the body of the POST or PATCH requests we will be making with JS fetch.
   end
 
 end

@@ -10,6 +10,7 @@ class CreateSkateSpots < ActiveRecord::Migration[5.2]
       t.string :description
       t.integer :bust_factor
       t.string :photo
+      t.json :avatars
       t.references :user, foreign_key: true
 
       t.timestamps
