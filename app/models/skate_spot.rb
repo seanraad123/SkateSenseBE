@@ -1,4 +1,5 @@
 class SkateSpot < ApplicationRecord
+  mount_uploaders :skate_photos, SkatePhotoUploader
   has_many :skate_spot_attachments
   belongs_to :user
   has_many :events, dependent: :destroy
