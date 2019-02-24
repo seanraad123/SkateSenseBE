@@ -11,7 +11,7 @@ class Api::V1::UsersController < ApplicationController
       @token = encode_token({ user_id: @user.id })
       render json: { user: UserSerializer.new(@user), jwt: @token }, status: :created
     else
-      render json: { error: 'failed to create user' }, status: :not_acceptable
+      render json: { error: @user.errors.messages}, status: :not_acceptable
     end
   end
 
@@ -23,6 +23,15 @@ class Api::V1::UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     render json: @user, status: 201
+  end
+
+  def destroy
+    @user = User.find(params[:id])
+    if @user.destroy
+      render json: {status: "success", code: 201, message: "User deleted"}
+    else
+      render json: {status: "error", code: 3000, message: "Error deleting user"}
+    end
   end
 
   private
