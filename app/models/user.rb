@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   has_secure_password
+  validates :username, presence: true
   validates :username, uniqueness: { case_sensitive: false }
   validates :password, length: { in: 6..20,
     too_short: "6 characters is the minimum allowed" }
