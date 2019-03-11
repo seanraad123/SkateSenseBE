@@ -19,6 +19,11 @@ class Api::V1::SkateSpotsController < ApplicationController
     end
   end
 
+  def update
+    @skate_spot = SkateSpot.find(params[:id])
+    @skate_spot.update_attributes(post_params)
+  end
+
   def destroy
     @skate_spot = SkateSpot.find(params[:id])
     if @skate_spot.destroy
@@ -33,7 +38,11 @@ class Api::V1::SkateSpotsController < ApplicationController
   private
 
   def post_params
-    params.permit(:country, :city, :state, :name, :description, {avatars: []}, :latitude, :longitude, :bust_factor, :user_id)   #These must be included in the body of the POST or PATCH requests we will be making with JS fetch.
+    if request.patch?
+      params.permit(:approved)
+    else
+      params.permit(:country, :city, :state, :name, :description, {avatars: []}, :latitude, :longitude, :bust_factor, :user_id)   #These must be included in the body of the POST or PATCH requests we will be making with JS fetch.
+    end
   end
 
 end
