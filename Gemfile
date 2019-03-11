@@ -21,7 +21,7 @@ gem 'carrierwave', '~> 1.0'
 gem "active_model_serializers", "~> 0.10.7"
 
 # Use ActiveStorage variant
-# gem 'mini_magick', '~> 4.8'
+gem 'mini_magick', '~> 4.8'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
