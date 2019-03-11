@@ -12,7 +12,6 @@ class Api::V1::SkateSpotsController < ApplicationController
 
   def create
     @skate_spot =  SkateSpot.new(post_params)
-    byebug
     if @skate_spot.save
       render json: @skate_spot, status: 201
     else
